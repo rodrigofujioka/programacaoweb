@@ -26,24 +26,26 @@ public class UserResource {
     save(@Valid @RequestBody User user) {
         userService.save(user);
         return ResponseEntity.ok(user);
-
     }
 
 
     @PutMapping("/user")
-    public String update(@Valid @RequestBody User user) {
-        return "Hello World Post";
+    public ResponseEntity update(@Valid @RequestBody User user) {
+        userService.save(user);
+        return ResponseEntity.ok().body(user);
     }
 
 
     @DeleteMapping("/user")
-    public String delete(@Valid @RequestBody User user) {
-        return "Hello World Post";
+    public ResponseEntity<String> delete(@Valid @RequestBody User user) {
+        userService.delete(user);
+       return  ResponseEntity.ok().body("User excluded ID: " + user.getId());
     }
 
     @DeleteMapping("/user/{id}")
-    public String deleteById(@PathVariable Long id) {
-        return "Hello World Post";
+    public ResponseEntity<String> deleteById(@PathVariable Long id) {
+        userService.deleteById(id);
+        return ResponseEntity.ok().body("User excluded ID: " + id);
     }
 
 
