@@ -59,7 +59,7 @@ utilização apenas sobre as IDE's do itens 1.4.1.
 
 2 - O conteúdo da disciplina pode não seguir a numeração dos slides. 
 
-2.1 - Os Slides são disponibilizados para todo semestre, porém podem sofrer atualizações. 
+2.1 - Os Slides são todos os domingos atualizados no virtual 
 
 Update: 25/08/2019
 
