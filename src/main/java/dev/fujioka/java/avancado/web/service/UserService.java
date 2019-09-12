@@ -5,6 +5,7 @@ import dev.fujioka.java.avancado.web.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UserService implements CrudInterface<User> {
 
@@ -17,13 +18,13 @@ public class UserService implements CrudInterface<User> {
     }
 
     @Override
-    public User save(User entity) {
-        return userRepository.save(entity);
+    public Optional<User> save(User entity) {
+        return Optional.of(userRepository.save(entity));
     }
 
     @Override
-    public User findById(long id) {
-        return userRepository.findById(id).get();
+    public Optional<User> findById(long id) {
+        return userRepository.findById(id);
     }
 
     @Override
