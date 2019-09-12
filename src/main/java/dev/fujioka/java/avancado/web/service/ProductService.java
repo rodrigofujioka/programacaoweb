@@ -3,6 +3,7 @@ package dev.fujioka.java.avancado.web.service;
 import dev.fujioka.java.avancado.web.model.Product;
 import dev.fujioka.java.avancado.web.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

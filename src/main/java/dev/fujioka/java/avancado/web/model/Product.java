@@ -9,6 +9,9 @@ import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
+@JsonIgnoreProperties(value = {"dtCreation", "dtUpdate"},
+        allowGetters = true)
 public class Product {
 
     @Id
