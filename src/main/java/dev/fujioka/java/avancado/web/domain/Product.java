@@ -1,18 +1,21 @@
-package dev.fujioka.java.avancado.web.model;
+package dev.fujioka.java.avancado.web.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"dtCreation", "dtUpdate"},
         allowGetters = true)
-public class Product {
+public class Product implements Serializable {
 
     @Id
     @GeneratedValue

@@ -1,6 +1,6 @@
 package dev.fujioka.java.avancado.web.web.rest;
 
-import dev.fujioka.java.avancado.web.model.User;
+import dev.fujioka.java.avancado.web.domain.User;
 import dev.fujioka.java.avancado.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
