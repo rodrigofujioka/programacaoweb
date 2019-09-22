@@ -19,6 +19,7 @@ public class ProductService
 
     @Override
     public List<Product> findAll() {
+
         return productRepository.findAll();
     }
 
@@ -46,4 +47,9 @@ public class ProductService
     public long count() {
         return productRepository.count();
     }
+
+    public List<Product> getListByName(String name){
+        return productRepository.findProductByName(name);
+    }
+
 }
