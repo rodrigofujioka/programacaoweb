@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -46,6 +48,33 @@ public class UserResource {
     public ResponseEntity<String> deleteById(@PathVariable Long id) {
         userService.deleteById(id);
         return ResponseEntity.ok().body("User excluded ID: " + id);
+    }
+    
+ /* Novos Metodos */
+    
+    @GetMapping("/user/login/{login}")
+    public User buscarPorLogin(@PathVariable String login) {
+    	return this.userService.buscarPorLogin(login);
+    }
+
+    @GetMapping("/user/firstName/{firstName}")
+    public List<User> buscarPorFirstNameLike(@PathVariable String firstName) {
+    	return this.userService.buscarPorFirstNameLike(firstName);
+    }
+
+    @GetMapping("/user/lastName/{lastName}")
+    public List<User> buscarPorLastNameLike(@PathVariable String lastName) {
+    	return this.userService.buscarPorLastNameLike(lastName);
+    }
+
+    @GetMapping("/user/firstName/{firstName}/lastName/{lastName}")
+    public List<User> buscarPorNomeCompleto(@PathVariable String firstName, @PathVariable String lastName) {
+    	return this.userService.buscarPorNomeCompleto(firstName, lastName);
+    }
+
+    @GetMapping("/user/{id}/creationDate")
+    public Date pegarDataCriacao(@PathVariable Long id) {
+    	return this.userService.pegarDataCriacao(id);
     }
 
 
