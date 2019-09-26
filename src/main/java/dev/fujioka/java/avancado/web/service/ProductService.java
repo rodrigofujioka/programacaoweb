@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,9 +48,27 @@ public class ProductService
     public long count() {
         return productRepository.count();
     }
+    
+   /*Novos Métodos*/
+    
+    public List<Product> buscarProdutosOrderByCreation() {
+    	return this.productRepository.buscarProdutosOrderByCreation();
+    }
 
-    public List<Product> getListByName(String name){
-        return productRepository.findProductByName(name);
+    public List<Product> buscarPorDescricao(String descricao) {
+    	return this.productRepository.buscarPorDescricao(descricao);
+    }
+
+    public List<Product> buscarPorDescricaoIgnoreCase(String description) {
+    	return this.productRepository.buscarPorDescricaoIgnoreCase(description);
+    }
+
+    public Product buscarPorId(Long id) {
+    	return this.productRepository.buscarPorId(id);
+    }
+
+    public Date buscarDataUltimoUpdate(Long id) {
+    	return this.productRepository.buscarDataUltimoUpdate(id);
     }
 
 }

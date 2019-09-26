@@ -18,7 +18,7 @@
     <description>Projeto da disciplina de programação avançada para web</description>
 
     <properties>
-        <java.version>8</java.version>
+        <java.version>9</java.version>
         <junit.version>5.5.1</junit.version>
     </properties>
 

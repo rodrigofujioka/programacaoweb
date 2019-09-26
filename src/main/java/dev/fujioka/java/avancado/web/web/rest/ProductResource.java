@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -21,11 +22,6 @@ public class ProductResource {
     public List<Product> getProductList() {
 
         return productService.findAll();
-    }
-
-    @GetMapping("/product/{name}")
-    public List<Product> getListByName(@PathVariable String name){
-        return productService.getListByName(name);
     }
 
 
@@ -53,6 +49,33 @@ public class ProductResource {
 
         productService.delete(product);
         return ResponseEntity.ok().body("Product excluded " + product.getId());
+    }
+    
+ /*Novos Metodos*/
+    
+    @GetMapping("/product/{id}")
+    public Product buscarPorId(@PathVariable Long id) {
+    	return this.productService.buscarPorId(id);
+    }
+
+    @GetMapping(value="/product", params = "order")
+    public List<Product> buscarProdutosOrderByCreation() {
+    	return this.productService.buscarProdutosOrderByCreation();
+    }
+
+    @GetMapping(value="/product/descricao/{descricao}")
+    public List<Product> buscarPorDescricao(@PathVariable String descricao) {
+    	return this.productService.buscarPorDescricao(descricao);
+    }
+
+    @GetMapping(value="/product/descricao/{descricao}", params = "ignoreCase")
+    public List<Product> buscarPorDescricaoIgnoreCase(@PathVariable String descricao) {
+    	return this.productService.buscarPorDescricaoIgnoreCase(descricao);
+    }
+
+    @GetMapping("/product/{id}/dtUpdate")
+    public Date buscarDataUltimoUpdate(@PathVariable Long id) {
+    	return this.productService.buscarDataUltimoUpdate(id);
     }
 
 
