@@ -52,8 +52,5 @@ public class ProductService
     }
 
 
-   public List<Product> obterListaProdutos(String nome){
-        return productRepository.findProductByName()
-   }
 
 }

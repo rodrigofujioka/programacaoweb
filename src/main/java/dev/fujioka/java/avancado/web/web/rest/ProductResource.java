@@ -16,26 +16,12 @@ public class ProductResource {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/product/list/{nome}")
-    public List<Product> listarProdutos
-                       (@PathVariable String nome){
-
-        List<Product> lista = productService.obterListaProdutos(nome);
-        return lista;
-    }
-
 
     @GetMapping("/product")
     public List<Product> getProductList() {
 
         return productService.findAll();
     }
-
-    @GetMapping("/product/{name}")
-    public List<Product> getListByName(@PathVariable String name){
-        return productService.getListByName(name);
-    }
-
 
     @PostMapping("/product")
     public ResponseEntity<Product> save(
