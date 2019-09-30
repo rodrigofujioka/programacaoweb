@@ -15,4 +15,10 @@ public interface ProductRepository
 
     public List<Product> findProductByName(String name);
 
+    @Query("select p from Product p where p.id in (:lista)")
+    public List<Product> listaProdutosPorId(
+            @Param("lista") List<Integer> lista);
+
+    //
 }
+

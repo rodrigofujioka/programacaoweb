@@ -25,12 +25,15 @@ public class ProductService
 
     @Override
     public Optional<Product> save(Product entity) {
+
         return Optional.of(productRepository.save(entity));
     }
 
     @Override
     public Optional<Product> findById(long id) {
+
         return productRepository.findById(id);
+
     }
 
     @Override
@@ -48,8 +51,9 @@ public class ProductService
         return productRepository.count();
     }
 
-    public List<Product> getListByName(String name){
-        return productRepository.findProductByName(name);
-    }
+
+   public List<Product> obterListaProdutos(String nome){
+        return productRepository.findProductByName()
+   }
 
 }

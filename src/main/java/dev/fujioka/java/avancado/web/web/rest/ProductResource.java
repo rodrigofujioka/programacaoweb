@@ -16,6 +16,14 @@ public class ProductResource {
     @Autowired
     private ProductService productService;
 
+    @GetMapping("/product/list/{nome}")
+    public List<Product> listarProdutos
+                       (@PathVariable String nome){
+
+        List<Product> lista = productService.obterListaProdutos(nome);
+        return lista;
+    }
+
 
     @GetMapping("/product")
     public List<Product> getProductList() {
@@ -33,7 +41,7 @@ public class ProductResource {
     public ResponseEntity<Product> save(
             @RequestBody Product product) {
 
-        product = productService.save(product).get();
+        product = productService.save(product).get() ;
 
         return ResponseEntity.ok().body(product);
     }
